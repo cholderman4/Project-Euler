@@ -1,4 +1,4 @@
-#include "problem_005.h"
+#include "problem_006.h"
 
 
 /*Problem 6
@@ -23,7 +23,7 @@ Answer:	25164150
  
 
 
-unsigned problem_005() {
+unsigned problem_006() {
 	
 	
 	
