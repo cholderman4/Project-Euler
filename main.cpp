@@ -1,33 +1,18 @@
-#include <iostream>
-#include <cmath>
+/* #include <iostream>
+#include <cmath> */
+#include "problem_002.h"
 
-using namespace std;
 
-int sumMultiples(int n)
-{
-    int sum = 0;
-    for (int i=n; i<1000; i+=n)
-    {
-        sum = sum + i;
-        //std::cout << i << endl;;
-    }
 
-    return sum;
-}
-
-bool isInteger(float k)
+/* bool isInteger(float k)
 {
     return std::floor(k) == k;
 }
-
-void problem1()
-{
-    std::cout << sumMultiples(3) + sumMultiples(5) - sumMultiples(15);
-}
+ */
 
 int main()
 {
-    for (int i=1; i<250; i++)
+    /* for (int i=1; i<250; i++)
     {
         float j = i;
         float k = (1000)*(500-j)/(1000-j);
@@ -39,7 +24,9 @@ int main()
             std::cout << "abc = " << product << endl;
         }
 
-    }
+    } */
+	
+	std::cout << problem_002() << std::endl;
 
     return 0;
 }
