@@ -1,4 +1,4 @@
-#include "problem_009.h"
+#include <iostream>
 #include <cmath>
 
 /*Problem 9
@@ -44,4 +44,11 @@ unsigned problem_009() {
     } */
 	
 	
+}
+
+int main() {
+	
+   	std::cout << problem_009() << std::endl;
+
+    return 0;
 }

@@ -1,4 +1,4 @@
-#include "problem_001.h"
+#include <iostream>
 
 /*Problem 1
 
@@ -24,4 +24,11 @@ int sumMultiples(int n) {
 int problem_001() {
 	
 	return sumMultiples(3) + sumMultiples(5) - sumMultiples(15);
+}
+
+int main() {
+	
+   	std::cout << problem_001() << std::endl;
+
+    return 0;
 }

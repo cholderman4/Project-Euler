@@ -1,4 +1,4 @@
-#include "problem_006.h"
+#include <iostream>
 
 
 /*Problem 6
@@ -23,8 +23,13 @@ Answer:	25164150
  
 
 
-unsigned problem_006() {
+unsigned problem_006() {	
 	
+}
+
+int main() {
 	
-	
+   	std::cout << problem_006() << std::endl;
+
+    return 0;
 }

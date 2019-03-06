@@ -1,4 +1,4 @@
-#include "problem_008.h"
+#include <iostream>
 
 
 /*Problem 8
@@ -39,6 +39,12 @@ Answer:	23514624000
 
 unsigned problem_008() {
 	
+}
+
+
+int main() {
 	
-	
+   	std::cout << problem_008() << std::endl;
+
+    return 0;
 }

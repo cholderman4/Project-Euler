@@ -1,4 +1,4 @@
-#include "problem_003.h"
+#include <iostream>
 #include <cmath>
 
 /*Problem 3
@@ -13,7 +13,6 @@ What is the largest prime factor of the number 600851475143 ?
 
 Answer:	6857
  */
-
 
 
 unsigned long problem_003() {
@@ -38,6 +37,12 @@ unsigned long problem_003() {
 	}
 	
 	return n;
+}
+
+
+int main() {
 	
-	
+   	std::cout << problem_003() << std::endl;
+
+    return 0;
 }

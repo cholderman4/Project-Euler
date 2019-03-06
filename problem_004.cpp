@@ -1,4 +1,4 @@
-#include "problem_004.h"
+#include <iostream>
 #include <cmath>
 
 
@@ -61,4 +61,12 @@ unsigned problem_004() {
 	}
 	
 	return largestPalindrome;
+}
+
+
+int main() {
+	
+   	std::cout << problem_004() << std::endl;
+
+    return 0;
 }

@@ -1,4 +1,4 @@
-#include "problem_002.h"
+#include <iostream>
 
 /*Problem 2
 
@@ -52,4 +52,11 @@ unsigned problem_002() {
 		c = a + b;
 	}
 	return sum;
+}
+
+int main() {
+	
+   	std::cout << problem_002() << std::endl;
+
+    return 0;
 }
