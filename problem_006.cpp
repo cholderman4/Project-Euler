@@ -24,7 +24,24 @@ Answer:	25164150
 
 
 unsigned problem_006() {	
-	
+
+    const int N = 100;
+
+    unsigned sum = 0;
+    unsigned rowSum = 0;
+
+    /* for (int i = 1; i <= N; ++i) {
+        rowSum += i;
+    } */
+
+    rowSum = N*(N+1)/2;
+
+    for (int i = 1; i <= N-1; ++i) {
+        rowSum -= i;
+        sum += 2*i*rowSum;
+    }
+
+    return sum;	
 }
 
 int main() {
