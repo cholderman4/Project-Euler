@@ -1,4 +1,5 @@
 #include "problem_003.h"
+#include <cmath>
 
 /*Problem 3
 
@@ -15,16 +16,28 @@ Answer:	6857
 
 
 
-int problem_003() {
+unsigned long problem_003() {
 	
 	
-	unsigned n = 600851475143;
+	unsigned long n = 600851475143;
 	
-	unsigned  factor = 2;
+	/* First divide out all the 2's. */
+	while (n % 2 == 0) {
+		n = n / 2;
+	}
 	
+	unsigned long testFactor = 3;
 	
-	while ( factor < sqrt(n) )
+	while ( testFactor < sqrt(n) ) {
+		
+		while (n % testFactor == 0) {
+			n = n / testFactor;
+		}
+		
+		testFactor += 2;		
+	}
 	
+	return n;
 	
 	
 }

@@ -17,26 +17,39 @@ Answer:	4613732
 
 
 
-int problem_002() {
+unsigned problem_002() {
 	
-	int sum = 0;
+	unsigned sum = 0;
 	
-	const int limit = 400000;
+	const unsigned limit = 4000000;
 	
-	int a = 2;
-	int b = 8;
-	int c = 4*b + a;
+	/* unsigned a = 2;
+	unsigned b = 8;
+	unsigned c = 4*b + a;
 	
 	sum = (a + b);
 	
-	while (c < limit) {
+	while (c <= limit) {
 		// Add the next term to the sum.
 		sum += c;
 		
 		// Advance each term forward one.
 		a = b;
 		b = c;
-		c = 4*b + a;
-	}
+		c = 4*a + b;
+	}  */
 	
+	unsigned a = 1;
+	unsigned b = 1;
+	unsigned c = a + b;
+	
+	while ( c <= limit ) {
+		
+		sum += c;
+		
+		a = b + c;
+		b = c + a;
+		c = a + b;
+	}
+	return sum;
 }
