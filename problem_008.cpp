@@ -1,4 +1,9 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <iterator>
 
 
 /*Problem 8
@@ -44,7 +49,35 @@ unsigned problem_008() {
 
 int main() {
 	
-   	std::cout << problem_008() << std::endl;
+        std::string str = "456"
+                "789";
+
+        /* std::stringstream ss(s);
+        std::vector<int> v;
+
+        while(ss >> hlp)
+        {
+                v.push_back(hlp);
+        }
+
+
+         */
+        /* for(auto i: s) {
+                std::cout << i << '\n';
+        } */
+
+        std::vector<int> v
+        int hlp;
+
+        for (char ch : str) {
+                std::stringstream ss (ch);
+                ch >> hlp;
+                v.push_back(hlp)
+        }
+
+        for (auto i : v) {
+                std::cout << i << '\n';        
+        }
 
     return 0;
 }
