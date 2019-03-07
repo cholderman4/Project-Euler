@@ -23,8 +23,10 @@ Answer:	25164150
  
 
 
-unsigned problem_006() {	
-	
+unsigned problem_006() {
+
+
+	return 0;
 }
 
 int main() {
