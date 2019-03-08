@@ -20,30 +20,22 @@ Answer:	31875000
  
  
 
- /* bool isInteger(float k)
-{
-    return std::floor(k) == k;
+ bool isInteger(float n) {
+    return std::floor(n) == n;
 }
- */
-
 
 unsigned problem_009() {
 	
-	/* for (int i=1; i<250; i++)
-    {
-        float j = i;
-        float k = (1000)*(500-j)/(1000-j);
-//        std::cout << k << endl;
-        if (isInteger(k))
-        {
-            std::cout << "a=" << j << ", b=" << k << ", c=" << 1000-(j+k) << endl;
-            int64_t product = j*k*(1000 - (j+k));
-            std::cout << "abc = " << product << endl;
-        }
+	for (int a=1; a<=250; ++a) {
 
-    } */
-	
-	
+        float b = static_cast<float>(1000)*(500-a)/static_cast<float>(1000-a);
+
+        if ( isInteger(b) ) {
+            return a*b*(1000 - (a+b));
+        }
+    }
+
+    return 0;	
 }
 
 int main() {
