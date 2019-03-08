@@ -66,13 +66,15 @@ int main() {
                 std::cout << i << '\n';
         } */
 
-        std::vector<int> v
+        std::vector<int> v;
         int hlp;
 
         for (char ch : str) {
-                std::stringstream ss (ch);
-                ch >> hlp;
-                v.push_back(hlp)
+                std::stringstream ss(ch);
+                while(ss >> hlp)
+                {
+                        v.push_back(hlp);
+                }
         }
 
         for (auto i : v) {
