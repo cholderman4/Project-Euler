@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 /*Problem 14
 
@@ -23,17 +24,74 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 Answer:	837799
  */
- 
- 
+
 
 unsigned problem_014() {
-	
-    return 0;	
+
+        const unsigned MEM_LIMIT = 1000000;
+        std::vector<unsigned> collatzNumber(MEM_LIMIT,0);
+        collatzNumber[0] = 1;
+        const unsigned LIMIT = 1000000;
+
+        
+        unsigned maxSequenceLength = 1;
+        unsigned maxStart = 1;
+
+        for (unsigned n = 1; n < LIMIT; ++n) {
+
+                std::vector<unsigned long> sequence(1, n);
+                unsigned long currentNumber = n;
+                unsigned sequenceLength = 0;
+
+                bool checkNumber;
+                if ( collatzNumber[currentNumber - 1] == 0 ) {
+                        checkNumber = true;
+                } else {
+                        checkNumber = false;
+                }
+                // Checks that the current value hasn't been encountered in a previous sequence. 
+                while (checkNumber) {                        
+                        /* Fill in the current seequence starting at n. */
+                        if (currentNumber % 2 == 0) {
+                                currentNumber /= 2;
+                        } else {
+                                currentNumber = 3*currentNumber + 1;
+                        }
+                        ++sequenceLength;
+                        sequence.push_back(currentNumber);
+
+                        if (currentNumber <= MEM_LIMIT) {
+                                if ( collatzNumber[currentNumber - 1] != 0 ) {
+                                        checkNumber = false;
+                                }
+                        }
+                }
+
+                sequenceLength += collatzNumber[currentNumber-1];
+
+                //std::cout << n << ": " << sequenceLength << std::endl;
+
+                // Check for largest sequence length. 
+                if (sequenceLength > maxSequenceLength) {
+                        maxSequenceLength = sequenceLength;
+                        maxStart = n;
+                }
+
+                // Loop through and fill in values further down the sequence. 
+                for (auto iter = sequence.begin(); iter != sequence.end(); ++iter) {
+                        if (*iter <= MEM_LIMIT) {
+                                collatzNumber[*iter - 1] = sequenceLength;
+                        }
+                        --sequenceLength;
+                }                
+        }
+       
+    return maxStart;
 }
 
 int main() {
 	
-   	std::cout << problem_014() << std::endl;
+        std::cout << "Max start value: " << problem_014() << std::endl;
 
     return 0;
 }

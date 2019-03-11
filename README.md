@@ -13,7 +13,7 @@ Problem 010:
 Problem 011:	
 Problem 012:	
 Problem 013:	
-Problem 014:	
+Problem 014:	Solved
 Problem 015:	
 Problem 016:	
 Problem 017:	
