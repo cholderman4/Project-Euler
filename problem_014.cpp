@@ -51,7 +51,7 @@ unsigned problem_014() {
                 }
                 // Checks that the current value hasn't been encountered in a previous sequence. 
                 while (checkNumber) {                        
-                        /* Fill in the current seequence starting at n. */
+                        // Fill in the current sequence starting at n.
                         if (currentNumber % 2 == 0) {
                                 currentNumber /= 2;
                         } else {
@@ -68,8 +68,6 @@ unsigned problem_014() {
                 }
 
                 sequenceLength += collatzNumber[currentNumber-1];
-
-                //std::cout << n << ": " << sequenceLength << std::endl;
 
                 // Check for largest sequence length. 
                 if (sequenceLength > maxSequenceLength) {
