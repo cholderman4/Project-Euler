@@ -18,7 +18,7 @@ Answer:	6857
 unsigned long problem_003() {
 	
 	
-	unsigned long n = 600851475143;
+ 	unsigned long n = 600851475143;
 	
 	/* First divide out all the 2's. */
 	while (n % 2 == 0) {
