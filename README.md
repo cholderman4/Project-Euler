@@ -9,7 +9,7 @@ Problem 006:	Solved
 Problem 007:	Solved
 Problem 008:	Solved
 Problem 009:	Solved
-Problem 010:	
+Problem 010:	Solved
 Problem 011:	
 Problem 012:	
 Problem 013:	
