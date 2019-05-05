@@ -15,7 +15,7 @@ int sumMultiples(int n) {
 	
     int sum = 0;
     for (int i=n; i<1000; i+=n) {
-		sum = sum + i;
+	    sum = sum + i;
     }
 
     return sum;
@@ -28,7 +28,7 @@ int problem_001() {
 
 int main() {
 	
-   	std::cout << problem_001() << std::endl;
+   	std::cout << problem_001() << '\n';
 
     return 0;
 }
