@@ -25,14 +25,56 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 
 
-Answer:	
+Answer:	76576500
  */
+
+unsigned getDivisorCount(unsigned long n) {
+
+    unsigned long root = sqrt(n);
+
+    //First potential divisor is 2, since 1 (and n) are always divisors.
+    unsigned long divisor = 2;
+    unsigned divisorCount = 2;
+
+    while (divisor < root) {
+        if (n % divisor == 0) {
+                divisorCount += 2;
+            }
+        ++divisor;
+    }
+
+    // Check if n is a perfect square.
+    if (root*root == n) {
+        ++divisorCount;
+    }
+
+    return divisorCount;
+}
  
  
 
-unsigned problem_012() {
+unsigned long problem_012() {
+
+    unsigned long n = 1;
+    unsigned divisorCount = 1;
+
+    unsigned divisorCount_0 = 1;
+    unsigned divisorCount_1 = 2;
+    
+    while (divisorCount <= 500) {
+
+        ++n;
+
+        // divisorCount_0 = divisorCount_1;
+        // divisorCount_1 = getDivisorCount(n+1);
+
+        // Something like this ???
+        // divisorCount = divisorCount_0 * divisorCount_1 - 1;     
+
+        divisorCount = getDivisorCount( n*(n+1)/2 );
+    }
 	
-    return 0;	
+    return n*(n+1)/2;	
 }
 
 int main() {

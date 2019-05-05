@@ -11,7 +11,7 @@ Problem 008:	Solved
 Problem 009:	Solved
 Problem 010:	Solved
 Problem 011:	Solved
-Problem 012:	
+Problem 012:	Solved
 Problem 013:	
 Problem 014:	Solved
 Problem 015:	
