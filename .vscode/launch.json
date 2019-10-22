@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - PE",
+            "request": "launch",
+            "mainClass": "PE"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - problem_018",
+            "request": "launch",
+            "mainClass": "problem_018"
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
