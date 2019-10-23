@@ -23,22 +23,6 @@ unsigned problem_002() {
 	
 	const unsigned limit = 4000000;
 	
-	/* unsigned a = 2;
-	unsigned b = 8;
-	unsigned c = 4*b + a;
-	
-	sum = (a + b);
-	
-	while (c <= limit) {
-		// Add the next term to the sum.
-		sum += c;
-		
-		// Advance each term forward one.
-		a = b;
-		b = c;
-		c = 4*a + b;
-	}  */
-	
 	unsigned a = 1;
 	unsigned b = 1;
 	unsigned c = a + b;
@@ -51,6 +35,7 @@ unsigned problem_002() {
 		b = c + a;
 		c = a + b;
 	}
+	
 	return sum;
 }
 

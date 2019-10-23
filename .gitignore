@@ -1,2 +1,5 @@
 
-*.json
+.vscode/settings.json
+*.exe
+*.ipch
+*.bin
