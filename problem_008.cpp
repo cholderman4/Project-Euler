@@ -88,10 +88,7 @@ unsigned long problem_008() {
         return largestProduct;	
 }
 
-
 int main() {
-
-        
 
         std::cout << problem_008() << std::endl;
 
