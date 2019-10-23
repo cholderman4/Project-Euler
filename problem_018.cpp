@@ -1,5 +1,6 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include <vector>
 
 /*Problem 18
 
@@ -39,12 +40,26 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 Answer:	
  */
  
- 
+class TriangularMatrix {
 
-unsigned problem_018() {
-	
-    return 0;	
+  std::vector<unsigned> values;
+
+  public:
+
+  TriangularMatrix(unsigned _rows) : rows(_rows), values(_rows * (_rows + 1)/2, 0) {};
+
+  std::vector<unsigned>::iterator index(unsigned row, unsigned col) {
+    return values.begin() + (row * (row - 1)/2 + (col-1));
+  }
+
+  unsigned rows;	
 }
+
+TriangularMatrix collapseBottomRow(TriangularMatrix& triMatrix) {
+
+  return 
+}
+
 
 int main() {
 	
