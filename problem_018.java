@@ -7,7 +7,7 @@ public class TriangularMatrix {
 public class problem_018 {
 
     static int solution() {
-        
+        return 5;
     }
 
     public static void main(String[] args)
