@@ -2,6 +2,14 @@
 #include <iostream>
 #include <vector>
 
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+
+
+
+
 /*Problem 18
 
 Maximum path sum I
@@ -53,6 +61,25 @@ class TriangularMatrix {
   }
 
   unsigned rows;	
+}
+
+TriangularMatrix getTreeFromText(std::string filename = "thefile.text") {
+  std::ifstream infile(filename);
+  std::string line;
+
+  while (std::getline(infile, line))
+  {
+    std::istringstream iss(line);
+    int n;
+    std::vector<int> v;
+    v.reserve()
+
+    while (iss >> n)
+    {
+      v.push_back(n);
+    }
+
+  }
 }
 
 TriangularMatrix collapseBottomRow(TriangularMatrix& triMatrix) {
