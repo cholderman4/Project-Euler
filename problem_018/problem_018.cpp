@@ -1,11 +1,10 @@
 #include <cmath>
 #include <iostream>
-#include <vector>
-
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 
 
@@ -48,49 +47,49 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 Answer:	
  */
  
-class TriangularMatrix {
+//class TriangularMatrix {
+//
+//  std::vector<unsigned> values;
+//
+//  public:
+//
+//  TriangularMatrix(unsigned _rows) : rows(_rows), values(_rows * (_rows + 1)/2, 0) {};
+//
+//  std::vector<unsigned>::iterator index(unsigned row, unsigned col) {
+//    return values.begin() + (row * (row - 1)/2 + (col-1));
+//  }
+//
+//  unsigned rows;	
+//}
 
-  std::vector<unsigned> values;
-
-  public:
-
-  TriangularMatrix(unsigned _rows) : rows(_rows), values(_rows * (_rows + 1)/2, 0) {};
-
-  std::vector<unsigned>::iterator index(unsigned row, unsigned col) {
-    return values.begin() + (row * (row - 1)/2 + (col-1));
-  }
-
-  unsigned rows;	
-}
-
-TriangularMatrix getTreeFromText(std::string filename = "thefile.text") {
+void getTreeFromText(unsigned nRows, std::string filename = "input.txt") {
   std::ifstream infile(filename);
   std::string line;
+  std::vector<int> v;
+  v.reserve((nRows * (nRows + 1)) / 2);
+  
 
   while (std::getline(infile, line))
   {
-    std::istringstream iss(line);
-    int n;
-    std::vector<int> v;
-    v.reserve()
+	std::istringstream iss(line);
+    int n;    
 
     while (iss >> n)
     {
-      v.push_back(n);
+		v.push_back(n);
     }
-
   }
 }
 
-TriangularMatrix collapseBottomRow(TriangularMatrix& triMatrix) {
-
-  return 
-}
+//TriangularMatrix collapseBottomRow(TriangularMatrix& triMatrix) {
+//
+//  return 
+//}
 
 
 int main() {
 	
-   	std::cout << problem_018() << std::endl;
-
+   	//std::cout << problem_018() << std::endl;
+	getTreeFromText(15);
     return 0;
 }

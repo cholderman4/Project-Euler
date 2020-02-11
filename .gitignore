@@ -3,3 +3,9 @@
 *.exe
 *.ipch
 *.bin
+.vs/
+*.ilk
+*.obj
+*.log
+*.tlog
+
