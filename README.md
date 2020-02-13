@@ -20,3 +20,5 @@ Problem 017:
 Problem 018:	
 Problem 019:	
 Problem 020:	
+
+Problem 067:	Solved
