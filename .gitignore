@@ -396,4 +396,4 @@ MigrationBackup/
 *.out
 *.app
 *.filters
-*.vcxproj
+# *.vcxproj
