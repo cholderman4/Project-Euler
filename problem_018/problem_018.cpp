@@ -1,10 +1,10 @@
+#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 
 
@@ -62,34 +62,46 @@ Answer:
 //  unsigned rows;	
 //}
 
-void getTreeFromText(unsigned nRows, std::string filename = "input.txt") {
+std::vector<unsigned> getTreeFromText(unsigned nRows, std::string filename = "input.txt") {
   std::ifstream infile(filename);
   std::string line;
-  std::vector<int> v;
+  std::vector<unsigned> v;
   v.reserve((nRows * (nRows + 1)) / 2);
   
 
   while (std::getline(infile, line))
   {
 	std::istringstream iss(line);
-    int n;    
+    unsigned n;    
 
     while (iss >> n)
     {
 		v.push_back(n);
     }
   }
+
+  return v;
 }
 
-//TriangularMatrix collapseBottomRow(TriangularMatrix& triMatrix) {
-//
-//  return 
-//}
-
-
-int main() {
+int main()
+{
+	unsigned nRows = 15;
 	
    	//std::cout << problem_018() << std::endl;
-	getTreeFromText(15);
+	auto triData = getTreeFromText(nRows);
+
+	nRows -= 2;
+	for (; nRows >= 1; --nRows)
+	{
+		unsigned rowBegin = ((nRows * (nRows+1)) / 2);
+		for (auto i = rowBegin; i < (rowBegin + nRows); ++i)
+		{
+			/*std::cout << "i:\t" << i << '\n';
+			std::cout << "data[i]:\t" << triData[i] << '\n';
+			std::cout << "children:\t" << triData[i + nRows] << ", " << triData[i + nRows + 1] << '\n';*/
+			triData[i] = triData[i] + std::max(triData[i + nRows+1], triData[i + nRows + 2]);
+		}
+	}
+	std::cout << triData[0] << triData[1] << triData[2] << '\n';
     return 0;
 }
