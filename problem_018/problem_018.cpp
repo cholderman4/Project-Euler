@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cmath>
+#include <chrono>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -44,23 +45,9 @@ Find the maximum total from top to bottom of the triangle below:
 NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 
 
-Answer:	
+Answer:	1074
  */
  
-//class TriangularMatrix {
-//
-//  std::vector<unsigned> values;
-//
-//  public:
-//
-//  TriangularMatrix(unsigned _rows) : rows(_rows), values(_rows * (_rows + 1)/2, 0) {};
-//
-//  std::vector<unsigned>::iterator index(unsigned row, unsigned col) {
-//    return values.begin() + (row * (row - 1)/2 + (col-1));
-//  }
-//
-//  unsigned rows;	
-//}
 
 std::vector<unsigned> getTreeFromText(unsigned nRows, std::string filename = "input.txt") {
   std::ifstream infile(filename);
@@ -83,25 +70,67 @@ std::vector<unsigned> getTreeFromText(unsigned nRows, std::string filename = "in
   return v;
 }
 
-int main()
-{
-	unsigned nRows = 15;
-	
-   	//std::cout << problem_018() << std::endl;
-	auto triData = getTreeFromText(nRows);
+//TriangularMatrix collapseBottomRow(TriangularMatrix& triMatrix) {
+//
+//  return 
+//}
 
-	nRows -= 2;
-	for (; nRows >= 1; --nRows)
+unsigned maximum_path_from_tree(const unsigned nRows, const std::vector<unsigned> data)
+{
+	auto currRow = nRows;
+	auto row_begin = data.begin() + (currRow * (currRow - 1) / 2);
+	auto row_end = row_begin + currRow;
+	auto result = std::vector<unsigned>(row_begin, row_end);
+	while (currRow > 1)
 	{
-		unsigned rowBegin = ((nRows * (nRows+1)) / 2);
-		for (auto i = rowBegin; i < (rowBegin + nRows); ++i)
+		// Take pairwise max of result
+		for (auto val = result.begin(); val != (result.end() - 1); ++val)
 		{
-			/*std::cout << "i:\t" << i << '\n';
-			std::cout << "data[i]:\t" << triData[i] << '\n';
-			std::cout << "children:\t" << triData[i + nRows] << ", " << triData[i + nRows + 1] << '\n';*/
-			triData[i] = triData[i] + std::max(triData[i + nRows+1], triData[i + nRows + 2]);
+			if (*(val + 1) > * val)
+			{
+				*val = *(val + 1);
+			}
 		}
+
+		// Remove garbage last element
+		result.pop_back();
+
+		--currRow;
+
+		auto row_begin = data.begin() + (currRow * (currRow - 1) / 2);
+		auto row_end = row_begin + currRow;
+
+		// Add results
+		std::transform(result.begin(), result.end(), row_begin, result.begin(), std::plus<unsigned>());
 	}
-	std::cout << triData[0] << triData[1] << triData[2] << '\n';
+
+	return result[0];
+}
+
+int main(void) {
+
+	const unsigned nRows = 15;
+	auto data = getTreeFromText(nRows, "input.txt");
+
+	// Get starting timepoint 
+	auto start = std::chrono::high_resolution_clock::now();
+
+	// Call the function, here sort() 
+	auto answer = maximum_path_from_tree(nRows, data);
+	// Get ending timepoint 
+	auto stop = std::chrono::high_resolution_clock::now();
+
+	// Get duration. Substart timepoints to  
+	// get durarion. To cast it to proper unit 
+	// use duration cast method 
+	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+
+	std::cout << "Answer: " << answer << '\n';
+
+	std::cout << "Time: "
+		<< duration.count() << " ns" << std::endl;
+	
+
+
     return 0;
 }
