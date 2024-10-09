@@ -1,5 +1,16 @@
 
+# Visual Studio 2015 cache/options directory
+.vs/
+
 .vscode/settings.json
 *.exe
 *.ipch
 *.bin
+
+#Build results
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
