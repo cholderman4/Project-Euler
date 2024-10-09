@@ -15,6 +15,16 @@ using namespace completed;
 
 using Int = uint64_t;
 
+Int fibonacci_1000_digit()
+{
+    using LargeDigit = std::vector<uint64_t>;
+
+    constexpr uint64_t maxDigit = 100000000000000000;
+    LargeDigit product;
+    product.reserve(100);
+    product.push_back(1);
+}
+
 int main()
 {
     std::cout << "sum: " << non_abundant_sums() << std::endl;
