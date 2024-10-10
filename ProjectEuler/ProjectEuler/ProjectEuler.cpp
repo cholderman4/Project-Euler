@@ -6,6 +6,7 @@
 #include <limits>
 #include <vector>
 
+#include "BigInt.h"
 #include "CompletedProblems.h"
 #include "UtilityHelpers.h"
 #include "Timing.h"
@@ -17,20 +18,29 @@ using Int = uint64_t;
 
 Int fibonacci_1000_digit()
 {
-    using LargeDigit = std::vector<uint64_t>;
+    constexpr auto MAX_DIGIT = 1000u;
+    BigInt a = 1;
+    BigInt b = 1;
+    BigInt c = a + b;
+    Int step = 3;
+    while(c.digits10() < MAX_DIGIT)
+    {
+        a = b;
+        b = c;
+        c += a;
+        ++step;
+    }
 
-    constexpr uint64_t maxDigit = 100000000000000000;
-    LargeDigit product;
-    product.reserve(100);
-    product.push_back(1);
-
+    return step;
 }
+
 
 int main()
 {
-    std::cout << "sum: " << non_abundant_sums() << std::endl;
+    std::cout << fibonacci_1000_digit() << std::endl;
+    //std::cout << "sum: " << factorial_digit_sum() << std::endl;
 
-    TimeFunction(non_abundant_sums);
+    //TimeFunction(fibonacci_1000_digit);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
