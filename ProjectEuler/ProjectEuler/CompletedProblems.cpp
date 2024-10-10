@@ -2,6 +2,7 @@
 
 #include <vector>
 
+#include "BigInt.h"
 #include "UtilityHelpers.h"
 
 namespace completed
@@ -86,48 +87,13 @@ namespace completed
     // Problem 20
     Int factorial_digit_sum()
     {
-        using LargeDigit = std::vector<uint64_t>;
-
-        constexpr uint64_t maxDigit = 100000000000000000;
-        LargeDigit product;
-        product.reserve(100);
-        product.push_back(1);
+        auto num = BigInt(1);
 
         constexpr int max = 100;
-        for (uint64_t i = 1; i <= max; ++i)
-        {
-            //const auto factor = (i % 10 == 0) ? (i / 10) : i;
+        for (uint32_t i = 1; i <= max; ++i)
+            num *= i;
 
-            // Multiply
-            uint64_t carry = 0;
-            for (auto& d : product)
-            {
-                d *= i;
-                d += carry;
-                carry = 0;
-                if (d > maxDigit)
-                {
-                    carry = d / maxDigit;
-                    d = d % maxDigit;
-                }
-            }
-            if (carry > 0)
-                product.push_back(carry);
-
-            /*std::cout << "i: " << i << std::endl;
-            std::cout << "size: " << product.size() << std::endl;*/
-        }
-
-        //std::cout << "size: " << product.size() << std::endl;
-
-        uint64_t sum = 0;
-        for (auto&& d : product)
-        {
-            sum += sum_digits(d);
-            //std::cout << d << std::endl;
-        }
-
-        return sum;
+        return num.sum_digits();
     }
 
     // Problem 21
