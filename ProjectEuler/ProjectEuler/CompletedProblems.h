@@ -24,4 +24,6 @@ namespace completed
 	bool has_abundant_sum(const int n, const std::vector<int8_t>& isAbundant);
 	Int non_abundant_sums();
 
+	// Problem 25
+	Int fibonacci_1000_digit();
 }

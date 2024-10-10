@@ -87,6 +87,7 @@ namespace completed
     // Problem 20
     Int factorial_digit_sum()
     {
+        // Condensed with BigInt class
         auto num = BigInt(1);
 
         constexpr int max = 100;
@@ -168,5 +169,24 @@ namespace completed
         }
 
         return sumNonAbundantSum;
+    }
+
+    // Problem 25
+    Int fibonacci_1000_digit()
+    {
+        constexpr auto MAX_DIGIT = 1000u;
+        BigInt a = 1;
+        BigInt b = 1;
+        BigInt c = a + b;
+        Int step = 3;
+        while (c.digits10() < MAX_DIGIT)
+        {
+            a = b;
+            b = c;
+            c += a;
+            ++step;
+        }
+
+        return step;
     }
 }

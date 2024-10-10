@@ -16,31 +16,13 @@ using namespace completed;
 
 using Int = uint64_t;
 
-Int fibonacci_1000_digit()
-{
-    constexpr auto MAX_DIGIT = 1000u;
-    BigInt a = 1;
-    BigInt b = 1;
-    BigInt c = a + b;
-    Int step = 3;
-    while(c.digits10() < MAX_DIGIT)
-    {
-        a = b;
-        b = c;
-        c += a;
-        ++step;
-    }
-
-    return step;
-}
-
 
 int main()
 {
     std::cout << fibonacci_1000_digit() << std::endl;
     //std::cout << "sum: " << factorial_digit_sum() << std::endl;
 
-    //TimeFunction(fibonacci_1000_digit);
+    TimeFunction(fibonacci_1000_digit);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
