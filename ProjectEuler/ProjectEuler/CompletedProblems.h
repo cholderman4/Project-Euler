@@ -26,4 +26,9 @@ namespace completed
 
 	// Problem 25
 	Int fibonacci_1000_digit();
+
+	// Problem 26
+	Int reciprocal_cycles_slow();
+	bool is_reptend_prime(const Int p);
+	Int reciprocal_cycles_fast();
 }

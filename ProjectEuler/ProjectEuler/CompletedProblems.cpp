@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "BigInt.h"
+#include "PrimeSieve.h"
 #include "UtilityHelpers.h"
 
 namespace completed
@@ -188,5 +189,77 @@ namespace completed
         }
 
         return step;
+    }
+
+    // Problem 26
+    Int reciprocal_cycles_slow()
+    {
+        constexpr Int MAX_DIVISOR = 999;
+
+        auto r2step = std::vector<uint64_t>(MAX_DIVISOR, 0);
+
+        Int maxCycle = 0;
+        Int maxDivisor = 0;
+        for (auto d = 2; d <= MAX_DIVISOR; ++d)
+        {
+            uint64_t step = 1;
+            Int r = 10 % d;
+            Int cycle = 0;
+            while (true)
+            {
+                if (r == 0) break;
+
+                if (r2step[r] != 0)
+                {
+                    // Seen this remainder before
+                    cycle = step - r2step[r];
+                    break;
+                }
+                r2step[r] = step;
+                ++step;
+                r = (10 * r) % d;
+            }
+
+            if (cycle > maxCycle)
+            {
+                maxCycle = cycle;
+                maxDivisor = d;
+            }
+            std::fill(r2step.begin(), r2step.end(), 0);
+        }
+        //std::cout << maxCycle << std::endl;
+        return maxDivisor;
+    }
+
+    bool is_reptend_prime(const Int p)
+    {
+        // Replicate long division, but only keep the remainder.
+        Int k = 1;
+        Int r = 10 % p;
+        while (r != 1 && k < p)
+        {
+            ++k;
+            r = (10 * r) % p;
+        }
+
+        return (k == p - 1);
+    }
+
+    Int reciprocal_cycles_fast()
+    {
+        constexpr Int MAX_DIVISOR = 999;
+
+        const auto sieve = PrimeSieve(MAX_DIVISOR);
+
+        for (Int d = MAX_DIVISOR; d >= 2; --d)
+        {
+            if (!sieve.is_prime(d))
+                continue;
+
+            if (is_reptend_prime(d))
+                return d;
+        }
+
+        return 0;
     }
 }
