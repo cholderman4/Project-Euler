@@ -75,5 +75,13 @@
     <ClCompile Include="problem_020.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="problem_067.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="triangle.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -147,6 +147,10 @@
     <ClCompile Include="problem_018.cpp" />
     <ClCompile Include="problem_019.cpp" />
     <ClCompile Include="problem_020.cpp" />
+    <ClCompile Include="problem_067.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="triangle.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
