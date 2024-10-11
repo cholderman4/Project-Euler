@@ -67,7 +67,6 @@ int main()
 {
     std::cout << quadratic_primes() << std::endl;
     TimeFunction(quadratic_primes);
-
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
