@@ -135,12 +135,14 @@
   <ItemGroup>
     <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="CompletedProblems.cpp" />
+    <ClCompile Include="PrimeSieve.cpp" />
     <ClCompile Include="ProjectEuler.cpp" />
     <ClCompile Include="UtilityHelpers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigInt.h" />
     <ClInclude Include="CompletedProblems.h" />
+    <ClInclude Include="PrimeSieve.h" />
     <ClInclude Include="Timing.h" />
     <ClInclude Include="UtilityHelpers.h" />
   </ItemGroup>
