@@ -31,4 +31,8 @@ namespace completed
 	Int reciprocal_cycles_slow();
 	bool is_reptend_prime(const Int p);
 	Int reciprocal_cycles_fast();
+
+	// Problem 27
+	int64_t quadratic_primes();
+
 }
