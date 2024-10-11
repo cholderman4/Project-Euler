@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "BigInt.h"
+#include "PrimeSieve.h"
 #include "UtilityHelpers.h"
 
 namespace completed
@@ -86,48 +88,14 @@ namespace completed
     // Problem 20
     Int factorial_digit_sum()
     {
-        using LargeDigit = std::vector<uint64_t>;
-
-        constexpr uint64_t maxDigit = 100000000000000000;
-        LargeDigit product;
-        product.reserve(100);
-        product.push_back(1);
+        // Condensed with BigInt class
+        auto num = BigInt(1);
 
         constexpr int max = 100;
-        for (uint64_t i = 1; i <= max; ++i)
-        {
-            //const auto factor = (i % 10 == 0) ? (i / 10) : i;
+        for (uint32_t i = 1; i <= max; ++i)
+            num *= i;
 
-            // Multiply
-            uint64_t carry = 0;
-            for (auto& d : product)
-            {
-                d *= i;
-                d += carry;
-                carry = 0;
-                if (d > maxDigit)
-                {
-                    carry = d / maxDigit;
-                    d = d % maxDigit;
-                }
-            }
-            if (carry > 0)
-                product.push_back(carry);
-
-            /*std::cout << "i: " << i << std::endl;
-            std::cout << "size: " << product.size() << std::endl;*/
-        }
-
-        //std::cout << "size: " << product.size() << std::endl;
-
-        uint64_t sum = 0;
-        for (auto&& d : product)
-        {
-            sum += sum_digits(d);
-            //std::cout << d << std::endl;
-        }
-
-        return sum;
+        return num.sum_digits();
     }
 
     // Problem 21
@@ -202,5 +170,96 @@ namespace completed
         }
 
         return sumNonAbundantSum;
+    }
+
+    // Problem 25
+    Int fibonacci_1000_digit()
+    {
+        constexpr auto MAX_DIGIT = 1000u;
+        BigInt a = 1;
+        BigInt b = 1;
+        BigInt c = a + b;
+        Int step = 3;
+        while (c.digits10() < MAX_DIGIT)
+        {
+            a = b;
+            b = c;
+            c += a;
+            ++step;
+        }
+
+        return step;
+    }
+
+    // Problem 26
+    Int reciprocal_cycles_slow()
+    {
+        constexpr Int MAX_DIVISOR = 999;
+
+        auto r2step = std::vector<uint64_t>(MAX_DIVISOR, 0);
+
+        Int maxCycle = 0;
+        Int maxDivisor = 0;
+        for (auto d = 2; d <= MAX_DIVISOR; ++d)
+        {
+            uint64_t step = 1;
+            Int r = 10 % d;
+            Int cycle = 0;
+            while (true)
+            {
+                if (r == 0) break;
+
+                if (r2step[r] != 0)
+                {
+                    // Seen this remainder before
+                    cycle = step - r2step[r];
+                    break;
+                }
+                r2step[r] = step;
+                ++step;
+                r = (10 * r) % d;
+            }
+
+            if (cycle > maxCycle)
+            {
+                maxCycle = cycle;
+                maxDivisor = d;
+            }
+            std::fill(r2step.begin(), r2step.end(), 0);
+        }
+        //std::cout << maxCycle << std::endl;
+        return maxDivisor;
+    }
+
+    bool is_reptend_prime(const Int p)
+    {
+        // Replicate long division, but only keep the remainder.
+        Int k = 1;
+        Int r = 10 % p;
+        while (r != 1 && k < p)
+        {
+            ++k;
+            r = (10 * r) % p;
+        }
+
+        return (k == p - 1);
+    }
+
+    Int reciprocal_cycles_fast()
+    {
+        constexpr Int MAX_DIVISOR = 999;
+
+        const auto sieve = PrimeSieve(MAX_DIVISOR);
+
+        for (Int d = MAX_DIVISOR; d >= 2; --d)
+        {
+            if (!sieve.is_prime(d))
+                continue;
+
+            if (is_reptend_prime(d))
+                return d;
+        }
+
+        return 0;
     }
 }

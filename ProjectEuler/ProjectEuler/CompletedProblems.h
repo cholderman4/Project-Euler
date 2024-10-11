@@ -24,4 +24,11 @@ namespace completed
 	bool has_abundant_sum(const int n, const std::vector<int8_t>& isAbundant);
 	Int non_abundant_sums();
 
+	// Problem 25
+	Int fibonacci_1000_digit();
+
+	// Problem 26
+	Int reciprocal_cycles_slow();
+	bool is_reptend_prime(const Int p);
+	Int reciprocal_cycles_fast();
 }

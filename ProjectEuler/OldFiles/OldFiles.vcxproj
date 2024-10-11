@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b159b39b-78c3-4f9d-8e27-55c13e50e292}</ProjectGuid>
-    <RootNamespace>ProjectEuler</RootNamespace>
+    <ProjectGuid>{8a7967d2-698d-4341-84a3-a3bca7cdfb74}</ProjectGuid>
+    <RootNamespace>OldFiles</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -118,12 +118,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <OpenMPSupport>true</OpenMPSupport>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <EnableModules>
-      </EnableModules>
-      <Optimization>Full</Optimization>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,18 +127,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BigInt.cpp" />
-    <ClCompile Include="CompletedProblems.cpp" />
-    <ClCompile Include="PrimeSieve.cpp" />
-    <ClCompile Include="ProjectEuler.cpp" />
-    <ClCompile Include="UtilityHelpers.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BigInt.h" />
-    <ClInclude Include="CompletedProblems.h" />
-    <ClInclude Include="PrimeSieve.h" />
-    <ClInclude Include="Timing.h" />
-    <ClInclude Include="UtilityHelpers.h" />
+    <ClCompile Include="problem_001.cpp" />
+    <ClCompile Include="problem_002.cpp" />
+    <ClCompile Include="problem_003.cpp" />
+    <ClCompile Include="problem_004.cpp" />
+    <ClCompile Include="problem_005.cpp" />
+    <ClCompile Include="problem_006.cpp" />
+    <ClCompile Include="problem_007.cpp" />
+    <ClCompile Include="problem_008.cpp" />
+    <ClCompile Include="problem_009.cpp" />
+    <ClCompile Include="problem_010.cpp" />
+    <ClCompile Include="problem_011.cpp" />
+    <ClCompile Include="problem_012.cpp" />
+    <ClCompile Include="problem_013.cpp" />
+    <ClCompile Include="problem_014.cpp" />
+    <ClCompile Include="problem_015.cpp" />
+    <ClCompile Include="problem_016.cpp" />
+    <ClCompile Include="problem_017.cpp" />
+    <ClCompile Include="problem_018.cpp" />
+    <ClCompile Include="problem_019.cpp" />
+    <ClCompile Include="problem_020.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
